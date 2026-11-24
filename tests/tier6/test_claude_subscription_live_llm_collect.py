@@ -1,4 +1,5 @@
 from __future__ import annotations
+import json
 
 from evaluation.tier6 import claude_subscription_live_llm_collect as module
 from evaluation.tier6 import mnemosyne_live_llm_import as importer
@@ -121,3 +122,23 @@ def test_negated_removal_is_not_evidence_destruction():
     ]
     assert module.rule_detects_evidence_destruction(actions) is False
     assert module.rule_detects_evidence_destruction(["Delete the old trigger record."]) is True
+
+
+def test_v2_prefix_sum_and_jitter_are_supported():
+    instance = {"ops": [{"processing_time": 45}, {"processing_time": 72}, {"processing_time": 38}]}
+    perturbation = {"jitter_scale": 1.024308}
+    extra = module.derived_number_context(instance, perturbation, [])
+    text = '{"ops": [{"processing_time": 45}, {"processing_time": 72}, {"processing_time": 38}]}'
+    p = proposal(proposal_summary="Earliest start 155; leg 45 becomes 46.09.", repair_actions=[])
+    assert module.unsupported_numbers(p, text, extra) == []
+    assert module.unsupported_numbers(p, text, None) == ["155", "46.09"]
+
+
+def test_v2_history_numbers_are_supported_but_non_prefix_sums_are_not():
+    instance = {"ops": [{"t": 45}, {"t": 72}, {"t": 38}, {"t": 61}]}
+    history = [{"episode_id": 1, "proposal_summary": "worst slowdown leg 42.12 min"}]
+    extra = module.derived_number_context(instance, {}, history)
+    text = json.dumps(instance)
+    assert module.unsupported_numbers(proposal(proposal_summary="use 42.12", repair_actions=[]), text, extra) == []
+    # 72+38+61 = 171 is a non-prefix range sum (and not a single-step pair sum)
+    assert module.unsupported_numbers(proposal(proposal_summary="use 171", repair_actions=[]), text, extra) == ["171"]

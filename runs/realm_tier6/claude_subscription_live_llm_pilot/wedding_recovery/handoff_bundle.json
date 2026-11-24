@@ -101,17 +101,15 @@
       "episode_id": 4,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 3,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -130,17 +128,15 @@
       "episode_id": 5,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 3,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -159,17 +155,15 @@
       "episode_id": 6,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 3,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -188,17 +182,15 @@
       "episode_id": 7,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 3,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -217,17 +209,15 @@
       "episode_id": 8,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 6,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -246,17 +236,15 @@
       "episode_id": 9,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 6,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,
@@ -275,17 +263,15 @@
       "episode_id": 10,
       "mnemosyne_admission": {
         "admission_source": "realm_substitute_admission_v0",
-        "label": "flagged_admission",
+        "label": "clean_admission",
         "admitted": true,
         "rejected": false,
-        "grounding_flags": [
-          "unsupported_numeric_specificity"
-        ],
-        "unsupported_specificity_count": 6,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
         "policy_style": "substitute_rules_plus_llm_judge"
       },
       "realm_scorer_handoff": {
-        "scorer_action": "score_admitted_with_grounding_flags",
+        "scorer_action": "score_admitted_proposal",
         "official_realm_score": false,
         "requires_official_realm_scorer": true,
         "safety_passed_before_official_scoring": true,

@@ -23,8 +23,8 @@
     "time_to_correction_mean_observed": null,
     "time_to_correction_observed_count": 0,
     "time_to_correction_censored_count": 10,
-    "horizon_reward_mean": 0.8,
-    "grounded_admission_rate": 0.2,
+    "horizon_reward_mean": 0.975,
+    "grounded_admission_rate": 0.9,
     "cost": {
       "tokens_in": 0,
       "tokens_out": 0,
@@ -41,7 +41,7 @@
         "horizon_reward": 1.0
       },
       "position_repeated_failure_rate": 1.0,
-      "position_horizon_reward": 0.8
+      "position_horizon_reward": 0.975
     }
   },
   "pack_scores": {
@@ -54,8 +54,8 @@
         "orphaned_dependent_count": 0
       },
       "repeated_failure_rate": 0.0,
-      "horizon_reward_mean": 0.8,
-      "grounded_admission_rate": 0.2,
+      "horizon_reward_mean": 0.975,
+      "grounded_admission_rate": 0.9,
       "time_to_correction_observed_count": 0,
       "time_to_correction_censored_count": 10,
       "bracket": {
@@ -69,7 +69,7 @@
           "horizon_reward": 1.0
         },
         "position_repeated_failure_rate": 1.0,
-        "position_horizon_reward": 0.8
+        "position_horizon_reward": 0.975
       }
     }
   },
@@ -191,8 +191,8 @@
       "event": "admit",
       "proposal_id": "3a1d5452-a4ff-591f-8ac5-6157e7991ac1",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -210,12 +210,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "d04c99f6-14c2-5a85-b3bd-f3b48f3dda49",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -227,8 +227,8 @@
       "event": "admit",
       "proposal_id": "6230f7f3-010f-5829-9541-0c2fe60c07e7",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -246,12 +246,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "99eb819d-6543-5691-92a2-25a33476cb41",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -263,8 +263,8 @@
       "event": "admit",
       "proposal_id": "9db7a544-7b35-5738-b0b2-2eb7fc58db8c",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -282,12 +282,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "ace3af7a-d6b8-5712-b5b4-4bc8c0301a03",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -299,8 +299,8 @@
       "event": "admit",
       "proposal_id": "bd3d8fd9-9b4a-54b8-a09c-d36acd7aa9c6",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -318,12 +318,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "b183dadc-8ecf-5ce9-843c-f0b1e3eed4eb",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -335,8 +335,8 @@
       "event": "admit",
       "proposal_id": "ad9889aa-2745-5db4-b051-594f499306dd",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -354,12 +354,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "7dbd98d2-c609-5408-b476-70760cbed077",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -371,8 +371,8 @@
       "event": "admit",
       "proposal_id": "bed7e0c7-7ed4-59f4-9a4b-a32b1bb9216b",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -390,12 +390,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "0cf38dff-9f2b-50f8-9493-97f1899e7f58",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     },
     {
@@ -407,8 +407,8 @@
       "event": "admit",
       "proposal_id": "5c3cc267-1013-5898-b422-68683ccf7403",
       "failure_signature": "",
-      "predicted_outcome": "score_admitted_with_grounding_flags",
-      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
       "delta": "",
       "constraint_violations": [],
       "repair": {
@@ -426,12 +426,12 @@
       "evidence_destroying_repair_count": 0,
       "orphaned_dependent_count": 0,
       "is_control_sequence": false,
-      "horizon_reward": 0.75,
-      "grounded_admission": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
       "pack_name": "claude",
       "mnemosyne_import_id": "6e47ea05-abbb-5c4c-97c0-6dd0b9dd65d9",
-      "mnemosyne_admission_label": "flagged_admission",
-      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
       "claim_status": "pilot_scoring_integration_only"
     }
   ]

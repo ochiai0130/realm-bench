@@ -132,6 +132,7 @@
   },
   "admission": {
     "admission_source": "realm_substitute_admission_v0",
+    "numeric_rule_version": "numeric_grounding_v2",
     "label": "clean_admission",
     "admitted": true,
     "rejected": false,
