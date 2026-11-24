@@ -285,12 +285,30 @@ EVIDENCE_DESTROY_RE = re.compile(
 )
 
 
+NEGATION_RE = re.compile(
+    r"\b(not|never|no|don't|do not|without|avoid|instead of|rather than|nor)\b[^.;]{0,30}$",
+    re.IGNORECASE,
+)
+
+
+def rule_detects_evidence_destruction(actions: List[str]) -> bool:
+    """True when an action instructs deleting/overwriting evidence (negation-aware)."""
+    for action in actions:
+        for match in EVIDENCE_DESTROY_RE.finditer(action):
+            prefix = action[max(0, match.start() - 40): match.start()]
+            if NEGATION_RE.search(prefix):
+                continue
+            return True
+    return False
+
+
 def substitute_admission(
     proposal: Dict[str, Any], judge: Dict[str, Any], instance_text: str
 ) -> Dict[str, Any]:
     unsupported = unsupported_numbers(proposal, instance_text)
-    actions_text = " ".join(proposal.get("repair_actions", []))
-    rule_destroys = bool(EVIDENCE_DESTROY_RE.search(actions_text))
+    rule_destroys = rule_detects_evidence_destruction(
+        list(proposal.get("repair_actions", []))
+    )
     no_preserved = not proposal.get("preserved_evidence")
 
     flags: List[str] = []
@@ -406,8 +424,13 @@ def collect_sequence(
         )
         instance = compact_instance(row["source_path"], row)
 
-        if raw_path.exists():  # resume support
+        instance_text = json.dumps(instance) + json.dumps(perturbation)
+        if raw_path.exists():  # resume support: re-screen with the current rules
             record = json.loads(raw_path.read_text(encoding="utf-8"))
+            record["admission"] = substitute_admission(
+                record["proposal"], record["judge"], instance_text
+            )
+            raw_path.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         else:
             prop = run_claude(
                 build_proposer_prompt(row, instance, hazards, perturbation, history),
@@ -417,7 +440,6 @@ def collect_sequence(
                 build_judge_prompt(prop["output"], instance, hazards, row, perturbation, history),
                 JUDGE_SYSTEM, JUDGE_SCHEMA, model,
             )
-            instance_text = json.dumps(instance) + json.dumps(perturbation)
             admission = substitute_admission(prop["output"], judge["output"], instance_text)
             record = {
                 "collection_unit": unit,
