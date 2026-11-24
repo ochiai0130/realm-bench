@@ -1,0 +1,781 @@
+{
+  "schema": "realm_tier6_mnemosyne_live_llm_import_report_v0",
+  "source_schema": "realm_tier6_claude_subscription_handoff_bundle_v0",
+  "claim_boundary": "REALM-Bench-side deterministic import report only. This consumes the Mnemosyne R86 handoff bundle and validates official-scorer-facing cases. It does not yet claim final official REALM scoring or confirmatory Chapter 6 evidence.",
+  "sequence_id": "T6-6039d2a74221",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "official_realm_score": false,
+  "import_type": "mnemosyne_live_llm_scorer_handoff_import",
+  "num_cases": 10,
+  "num_validation_passed": 10,
+  "num_validation_failed": 0,
+  "all_cases_valid": true,
+  "disposition_counts": {
+    "eligible_for_official_realm_flagged_scoring": 8,
+    "eligible_for_official_realm_admitted_scoring": 2
+  },
+  "pack_summary": {
+    "claude": {
+      "cases": 10,
+      "validation_passed": 10,
+      "validation_failed": 0,
+      "admission_labels": {
+        "flagged_admission": 8,
+        "clean_admission": 2
+      },
+      "dispositions": {
+        "eligible_for_official_realm_flagged_scoring": 8,
+        "eligible_for_official_realm_admitted_scoring": 2
+      }
+    }
+  },
+  "cases": [
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "a3d1efd9-6141-587e-b9b9-af22e5ae4870",
+      "source_case_id": "b46fe808-8d6a-5a87-81b2-4c045580182d",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 1,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Collect both airport guests in one trip using Pat's car, on mapped routes that the disruptions do not touch, and finish it well before 14:00. Pat arrives at W (Wedding venue) at 12:00 with a 5-seat car. Pat drives W→B (40 min) and gets to B (Boston Airport) about 12:40, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, then drives B→T (30 min) to reach T (Tailor shop) about 13:10, before it closes at 14:00. Pat then drives T→W (15 min) and arrives about 13:25 plus time spent at the tailor. That leaves more than 90 minutes before photo_time 15:00. This avoids the hotel-church closure (13:00 for 39 min) and the airport-hotel delay (+17 min from 14:00). It also avoids the short-sighted option of sending a vehicle for Alex at 11:00, which would need a second airport trip near or after 14:00, when the delay starts. The fleet vehicles (van, car1, car2) stay as backups because their start points are not in the travel-time table. Any use of them must allow for the closure and treat the 17-min delay as continuing.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "b46fe808-8d6a-5a87-81b2-4c045580182d"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 1
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "95c6a2e4-8ffc-55af-990d-579e87c43de5",
+      "source_case_id": "1625818b-a303-5864-b6a8-911e6d501ddc",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "mnemosyne_admission_label": "clean_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [],
+      "unsupported_specificity_count": 0,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_proposal",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip from episode 1, with two changes. First, add travel time for the jitter on every leg. Second, set a fixed limit on time at the tailor, so the photo_time margin is a stated number rather than a loose claim. Pat starts at W (Wedding venue) at 12:00 in a 5-seat car. Pat drives W→B, which is 40 min nominal or about 41 min with jitter (×1.020687), reaching B (Boston Airport) at about 12:41. That is after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats. Pat drives B→T, 30 min nominal or about 31 min with jitter, reaching T (Tailor shop) at about 13:12. The tailor stop is capped so that Pat leaves T by 13:59 at the latest, before tailor_closes at 14:00. Pat then drives T→W, 15 min nominal or about 16 min with jitter, reaching W by about 14:15 in the worst case. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. This plan avoids myopic choices: there is no separate early trip for Alex that would force a second airport run into the 14:00 delay. It also does not underestimate route times: jitter is added to every mapped leg, and the airport-hotel delay of +17 min from 14:00 is treated as continuing. The hotel-church closure (13:00, 39 min) is treated as still in place after 13:39 until the road is actually seen to reopen. The fleet vehicles (van, car1, car2) stay as backups only, because their start points are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "1625818b-a303-5864-b6a8-911e6d501ddc"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 2
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "clean_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_proposal"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "e49b7b27-708a-5ca4-b7b9-92cc31ce814a",
+      "source_case_id": "f69ecbd3-cc00-578b-abd9-01d2c8b4ff5f",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "mnemosyne_admission_label": "clean_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [],
+      "unsupported_specificity_count": 0,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_proposal",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip from episode 2. Keep the leg times from episode 2 instead of shortening them with this episode's jitter. This episode's jitter scale is 0.93464, which is below 1, so applying it would cut the mapped times to about 37, 28 and 14 min. Doing that would undercut the episode 2 observation (×1.020687), which is exactly the stale-world error this sequence tests. So each leg uses the larger of the nominal time and the worst observed jitter, rounded up: W→B 41 min, B→T 31 min, T→W 16 min, B→W 41 min. The plan: Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at about 12:41, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats. Pat drives B→T and reaches T (Tailor shop) at about 13:12, then must leave T by 13:59, before tailor_closes at 14:00. Pat drives T→W and reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. If no tailor stop is needed, Pat drives B→W and reaches W at about 13:22. The plan avoids the myopic early run for Alex, which would force a second airport trip into the airport-hotel delay of +17 min from 14:00. That delay is treated as continuing until clearance is observed. The hotel-church closure (13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "f69ecbd3-cc00-578b-abd9-01d2c8b4ff5f"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 3
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "clean_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_proposal"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "d04c99f6-14c2-5a85-b3bd-f3b48f3dda49",
+      "source_case_id": "3a1d5452-a4ff-591f-8ac5-6157e7991ac1",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 3,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip used in episodes 2 and 3. Update the jitter rule with this episode's scale of 1.024308. This is now the largest scale seen in the sequence, above 1.020687 in episode 2 and 0.93464 in episode 3. Each leg uses the larger of its nominal time and the worst observed jitter, rounded up:\n- W→B: 40.97, so 41 min\n- B→T: 30.73, so 31 min\n- T→W: 15.36, so 16 min\n- B→W: 40.97, so 41 min\n\nThese times happen to round to the same minutes as before, so the schedule does not change. Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:41, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats, and reaches T (Tailor shop) at 13:12. Pat must leave T by 13:59, before tailor_closes at 14:00. Pat then reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. If no tailor stop is needed, Pat goes straight from B to W and arrives at 13:22.\n\nThe plan avoids the short-sighted choice of collecting Alex separately and early. That would force a second airport run into the airport-hotel delay (+17 min from 14:00). That delay is assumed to continue until clearance is observed. The hotel-church closure (13:00, 39 min) is assumed to last past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "3a1d5452-a4ff-591f-8ac5-6157e7991ac1"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 4
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "99eb819d-6543-5691-92a2-25a33476cb41",
+      "source_case_id": "6230f7f3-010f-5829-9541-0c2fe60c07e7",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 3,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–4, but update the leg times for this episode's jitter. At 1.048194 it is the largest scale seen so far, above 1.024308, 1.020687 and 0.93464. Unlike episode 4, the rounded leg times now go up, so the schedule changes. Each leg uses the larger of its nominal time and the worst jitter seen, rounded up:\n- W→B: 40 × 1.048194 = 41.93, so 42 min\n- B→T: 30 × 1.048194 = 31.45, so 32 min\n- T→W: 15 × 1.048194 = 15.72, so 16 min\n- B→W: 40 × 1.048194 = 41.93, so 42 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:42, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats.\n- Pat reaches T (Tailor shop) at 13:14 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:24.\n\nThe plan does not send a separate early car for Alex. That would need a second airport trip into the airport-hotel delay (+17 min from 14:00). This delay is treated as continuing until it is seen to clear. The hotel-church closure (13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "6230f7f3-010f-5829-9541-0c2fe60c07e7"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 5
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "ace3af7a-d6b8-5712-b5b4-4bc8c0301a03",
+      "source_case_id": "9db7a544-7b35-5738-b0b2-2eb7fc58db8c",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 3,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–5, with leg times updated for this episode's jitter. The new scale is 1.05302, the largest seen so far (earlier values: 1.048194, 1.024308, 1.020687 and 0.93464). Each leg uses the larger of its nominal time and the worst jitter seen, rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min (up 1 min from episode 5)\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 40 × 1.05302 = 42.12, so 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before the tailor closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before the 18:00 wedding deadline.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nThe plan does not send a separate early car for Alex. That trip would force a second airport run into the airport-hotel delay (+17 min from 14:00). The delay is assumed to continue until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is assumed to continue past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "9db7a544-7b35-5738-b0b2-2eb7fc58db8c"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 6
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "b183dadc-8ecf-5ce9-843c-f0b1e3eed4eb",
+      "source_case_id": "bd3d8fd9-9b4a-54b8-a09c-d36acd7aa9c6",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 3,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–6 and its schedule, which is unchanged from episode 6. This episode's jitter is 0.91527, the lowest seen so far. Using it would shorten the legs to about 37, 28 and 14 min. That would ignore the worse delays already seen, which is the stale-world error this sequence tests, so it is not used. Each leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in the 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nThe plan does not send a separate early car for Alex, because that would need a second airport run into the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "bd3d8fd9-9b4a-54b8-a09c-d36acd7aa9c6"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 7
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "7dbd98d2-c609-5408-b476-70760cbed077",
+      "source_case_id": "ad9889aa-2745-5db4-b051-594f499306dd",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 6,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip and the schedule from episodes 6 and 7. This episode's jitter is 0.960453. Using it would shorten the legs to 38.42, 28.81 and 14.41 min, which would drop below the worst slowdown already seen. That is the stale-world error this sequence tests, so the lower value is not used.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie. That uses 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "ad9889aa-2745-5db4-b051-594f499306dd"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 8
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "0cf38dff-9f2b-50f8-9493-97f1899e7f58",
+      "source_case_id": "bed7e0c7-7ed4-59f4-9a4b-a32b1bb9216b",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 6,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip and the schedule used in episodes 6–8. This episode's jitter is 0.954072. Using it would shorten the legs to 38.16, 28.62 and 14.31 min. That would drop below the worst slowdown already seen, which is the stale-world error this sequence tests, so it is not used.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "bed7e0c7-7ed4-59f4-9a4b-a32b1bb9216b"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 9
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    },
+    {
+      "schema": "realm_tier6_mnemosyne_live_llm_import_case_v0",
+      "import_id": "6e47ea05-abbb-5c4c-97c0-6dd0b9dd65d9",
+      "source_case_id": "5c3cc267-1013-5898-b422-68683ccf7403",
+      "sequence_id": "T6-6039d2a74221",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "mnemosyne_admission_label": "flagged_admission",
+      "mnemosyne_admitted": true,
+      "mnemosyne_rejected": false,
+      "grounding_flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "unsupported_specificity_count": 6,
+      "policy_style": "substitute_rules_plus_llm_judge",
+      "realm_scorer_action": "score_admitted_with_grounding_flags",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "safety_passed_before_official_scoring": true,
+      "screened_before_commit": false,
+      "proposal_summary": "Keep the single combined airport trip and the schedule from episodes 6–9. This episode's jitter is 0.942727. Applying it would shorten the legs to 37.71, 28.28 and 14.14 min, which is below the worst slowdown already seen. That is the stale-world error this sequence tests, so this jitter is not used to shorten any leg.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in the 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). That delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table.",
+      "validation_checks": [
+        {
+          "name": "case_id_present",
+          "passed": true,
+          "detail": {
+            "case_id": "5c3cc267-1013-5898-b422-68683ccf7403"
+          }
+        },
+        {
+          "name": "episode_id_present",
+          "passed": true,
+          "detail": {
+            "episode_id": 10
+          }
+        },
+        {
+          "name": "pack_name_present",
+          "passed": true,
+          "detail": {
+            "pack_name": "claude"
+          }
+        },
+        {
+          "name": "valid_admission_label",
+          "passed": true,
+          "detail": {
+            "label": "flagged_admission"
+          }
+        },
+        {
+          "name": "valid_scorer_action",
+          "passed": true,
+          "detail": {
+            "scorer_action": "score_admitted_with_grounding_flags"
+          }
+        },
+        {
+          "name": "official_score_not_claimed",
+          "passed": true,
+          "detail": {
+            "official_realm_score": false
+          }
+        },
+        {
+          "name": "requires_official_scorer",
+          "passed": true,
+          "detail": {
+            "requires_official_realm_scorer": true
+          }
+        }
+      ],
+      "validation_passed": true
+    }
+  ]
+}

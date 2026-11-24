@@ -1,0 +1,306 @@
+{
+  "schema": "realm_tier6_claude_subscription_pilot_summary_v0",
+  "claim_boundary": "Claude-pack only (30 of the 120 R93 matrix cases). Responses were collected with the headless claude CLI billed to the Claude subscription (OAuth). Admission uses a REALM-side substitute (deterministic grounding/evidence rules plus a same-family LLM judge), not Mnemosyne, and the proposer prompt is a REALM-side reconstruction; numbers are not directly comparable with R88. Scores come from the existing REALM Tier-6 scorer via the R87/R88 import path and are pilot evidence only (official_realm_score=False).",
+  "billing_path": "claude_cli_subscription_oauth",
+  "auth_status": {
+    "authMethod": "oauth_token",
+    "apiProvider": "firstParty"
+  },
+  "model_alias": "opus",
+  "served_model_matches_alias_all": true,
+  "num_planned": 30,
+  "num_cases": 30,
+  "tokens_in": 714181,
+  "tokens_out": 129053,
+  "estimated_list_cost_usd": 7.7667,
+  "families": {
+    "jobshop_breakdown": {
+      "sequence_id": "T6-76095aec5ba1",
+      "cases": 10,
+      "admission_labels": {
+        "flagged_admission": 10
+      },
+      "all_import_cases_valid": true,
+      "safety_passed": true,
+      "horizon_reward_mean": 0.75,
+      "grounded_admission_rate": 0.0,
+      "repeated_failure_rate": 0.0
+    },
+    "ride_or_routing_disruption": {
+      "sequence_id": "T6-c574beceb46d",
+      "cases": 10,
+      "admission_labels": {
+        "flagged_admission": 1,
+        "clean_admission": 9
+      },
+      "all_import_cases_valid": true,
+      "safety_passed": true,
+      "horizon_reward_mean": 0.975,
+      "grounded_admission_rate": 0.9,
+      "repeated_failure_rate": 0.0
+    },
+    "wedding_recovery": {
+      "sequence_id": "T6-6039d2a74221",
+      "cases": 10,
+      "admission_labels": {
+        "flagged_admission": 8,
+        "clean_admission": 2
+      },
+      "all_import_cases_valid": true,
+      "safety_passed": true,
+      "horizon_reward_mean": 0.8,
+      "grounded_admission_rate": 0.2,
+      "repeated_failure_rate": 0.0
+    }
+  },
+  "cases": [
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e01",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Limited, additive repair. Add machine 24's outage (t=196 to 222) as a hard blocked window in the schedule, and keep the original disruption record unchanged. The data shows the outage cannot reach any listed job. Only jobs 71 and 169 have operations on machine 24, and each of those operations can start no earlier than the sum of the processing times before it: t=564 for job 71 op10, t=727 for job 169 op13, and t=1081 for job 169 op19. All of these are after t=222, so no operation needs to move. The other 15 jobs in affected_jobs have no machine-24 operation in the given data. I am recording that as a data discrepancy, not repairing it. I am not rescheduling for the two severe weather windows (t=519–681 and t=534–705). The instance gives no delay amount, and it is unclear whether affected_operations means job IDs or operation IDs. No baseline schedule was provided either, so any weather shift would be made up. Instead, those operations are flagged for re-check when the data is available."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e02",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This is a small repair that only adds to the plan; nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26, so blocked from t=196 to t=222) goes into the schedule as a hard blocked window, and the original disruption record stays unchanged. Using this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 operation 10 cannot start before t=564. Job 169 operation 13 cannot start before t=727, and operation 19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. I record this as a data discrepancy but do not change it. I do not reschedule anything for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether affected_operations means job IDs or operation IDs, and there is no baseline schedule. Instead, the operations listed in those windows are marked at-risk for re-checking. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e03",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This is a small repair that only adds to the plan. Nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222 in a new plan version. The original disruption record stays unchanged and linked. The processing-time data shows that only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. I record this as a data discrepancy but do not change it. I do not reschedule anything for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e04",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222 in a new plan version. The original disruption record stays unchanged and linked to it. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. This is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e05",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. That window links back to the original disruption record, which stays as it is. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it does not say whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan stay unchanged and remain linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e06",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan; nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222, linked to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation needs to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e07",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e08",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan; nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e09",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e10",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e01",
+      "label": "flagged_admission",
+      "judge_label": "flagged_admission",
+      "flags": [
+        "judge_ungrounded_specifics"
+      ],
+      "proposal_summary": "This is a partial repair. 4 of the 7 requests can be assigned: v001 takes p001 and p005 together (university to suburb), v002 takes p003, and v003 takes p007. The other 3 can't be served as the data stands. p002's deadline is shorter than every route from airport to park. p004 can only meet its deadline on the 43-unit direct route, and no vehicle has enough fuel for that trip. p006 has a reversed time window (start after end). p003's time window is also reversed, so its assignment holds only if the window is confirmed. The plan avoids the mall-university construction leg. It also takes p004's direct route out of the plan, because that route ends in the downtown accident zone during p004's pickup window. All the original data and disruption records stay unchanged and are logged as the reason for this repair."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e02",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held with logged reasons.\n- **v001** takes p001 and p005 together from university to suburb. The trip is 10 units, leaving 44 of its 54 fuel.\n- **v002** takes p003 on park, then mall, then suburb. That is 14 + 36 = 50 units, within both its 57 fuel and the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1].\n- **v003** takes p007 on downtown, then park, then mall. That is 18 + 14 = 32 units, within its 50 fuel. The 14-unit passenger leg is within the 21 deadline.\n\nHeld requests:\n- **p002:** the shortest route from airport to park is 32 units (through mall), which is over its 25 deadline.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The total fuel needed is 69 for v001 (which has 54), 75 for v002 (57) and 86 for v003 (50).\n- **p006:** its time window is reversed: [14.75, 14.27]. v003 could reach it on a 50-unit route through park and mall, but that uses all of v003's fuel and conflicts with p007.\n\nThe plan avoids the mall-university construction edge. All original records and disruptions are kept unchanged as the evidence for this repair."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e03",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The figures match the episode-2 plan, which passed review cleanly; every figure was re-checked against this instance.\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units, which leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1].\n- **v003** (at downtown, 50 fuel) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld requests:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall and 57 through suburb.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of its fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e04",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The plan matches episodes 2 and 3, which both passed review cleanly, and I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units, which leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall, 55 through park and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of its fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e05",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The plan is the same as episodes 2–4, which passed review cleanly, and every figure was re-checked against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall, 55 through park and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e06",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. It is the same plan that passed review cleanly in episodes 2–5. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e07",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data matches the earlier episodes, so the plan is the same one that passed review cleanly in episodes 2–6. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e08",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data is the same as in earlier episodes, so the plan matches the one that passed review cleanly in episodes 2–7. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons: p003's time window is reversed ([10.75, 10.1]), and the park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e09",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data matches episodes 2–8, so the plan is the one that passed review cleanly there. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons:\n  - p003's time window is reversed: [10.75, 10.1].\n  - The park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university.\n  - Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50).\n  - The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and the three disruption records are kept unchanged as the evidence for this repair. Changes go only to a separate change list that points back to those records."
+    },
+    {
+      "unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e10",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned, and the other 3 are held with a logged reason for each. This instance's data is the same as in episodes 2–9, and I re-checked every figure against it.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons:\n  - p003's time window is reversed: [10.75, 10.1].\n  - The park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university.\n  - Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50).\n  - The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and the three disruption records are kept unchanged as the evidence for this repair. Changes go only to a separate change list that points back to those records."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e01",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Collect both airport guests in one trip using Pat's car, on mapped routes that the disruptions do not touch, and finish it well before 14:00. Pat arrives at W (Wedding venue) at 12:00 with a 5-seat car. Pat drives W→B (40 min) and gets to B (Boston Airport) about 12:40, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, then drives B→T (30 min) to reach T (Tailor shop) about 13:10, before it closes at 14:00. Pat then drives T→W (15 min) and arrives about 13:25 plus time spent at the tailor. That leaves more than 90 minutes before photo_time 15:00. This avoids the hotel-church closure (13:00 for 39 min) and the airport-hotel delay (+17 min from 14:00). It also avoids the short-sighted option of sending a vehicle for Alex at 11:00, which would need a second airport trip near or after 14:00, when the delay starts. The fleet vehicles (van, car1, car2) stay as backups because their start points are not in the travel-time table. Any use of them must allow for the closure and treat the 17-min delay as continuing."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e02",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "Keep the single combined airport trip from episode 1, with two changes. First, add travel time for the jitter on every leg. Second, set a fixed limit on time at the tailor, so the photo_time margin is a stated number rather than a loose claim. Pat starts at W (Wedding venue) at 12:00 in a 5-seat car. Pat drives W→B, which is 40 min nominal or about 41 min with jitter (×1.020687), reaching B (Boston Airport) at about 12:41. That is after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats. Pat drives B→T, 30 min nominal or about 31 min with jitter, reaching T (Tailor shop) at about 13:12. The tailor stop is capped so that Pat leaves T by 13:59 at the latest, before tailor_closes at 14:00. Pat then drives T→W, 15 min nominal or about 16 min with jitter, reaching W by about 14:15 in the worst case. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. This plan avoids myopic choices: there is no separate early trip for Alex that would force a second airport run into the 14:00 delay. It also does not underestimate route times: jitter is added to every mapped leg, and the airport-hotel delay of +17 min from 14:00 is treated as continuing. The hotel-church closure (13:00, 39 min) is treated as still in place after 13:39 until the road is actually seen to reopen. The fleet vehicles (van, car1, car2) stay as backups only, because their start points are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e03",
+      "label": "clean_admission",
+      "judge_label": "clean_admission",
+      "flags": [],
+      "proposal_summary": "Keep the single combined airport trip from episode 2. Keep the leg times from episode 2 instead of shortening them with this episode's jitter. This episode's jitter scale is 0.93464, which is below 1, so applying it would cut the mapped times to about 37, 28 and 14 min. Doing that would undercut the episode 2 observation (×1.020687), which is exactly the stale-world error this sequence tests. So each leg uses the larger of the nominal time and the worst observed jitter, rounded up: W→B 41 min, B→T 31 min, T→W 16 min, B→W 41 min. The plan: Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at about 12:41, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats. Pat drives B→T and reaches T (Tailor shop) at about 13:12, then must leave T by 13:59, before tailor_closes at 14:00. Pat drives T→W and reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. If no tailor stop is needed, Pat drives B→W and reaches W at about 13:22. The plan avoids the myopic early run for Alex, which would force a second airport trip into the airport-hotel delay of +17 min from 14:00. That delay is treated as continuing until clearance is observed. The hotel-church closure (13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e04",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip used in episodes 2 and 3. Update the jitter rule with this episode's scale of 1.024308. This is now the largest scale seen in the sequence, above 1.020687 in episode 2 and 0.93464 in episode 3. Each leg uses the larger of its nominal time and the worst observed jitter, rounded up:\n- W→B: 40.97, so 41 min\n- B→T: 30.73, so 31 min\n- T→W: 15.36, so 16 min\n- B→W: 40.97, so 41 min\n\nThese times happen to round to the same minutes as before, so the schedule does not change. Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:41, after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats, and reaches T (Tailor shop) at 13:12. Pat must leave T by 13:59, before tailor_closes at 14:00. Pat then reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. If no tailor stop is needed, Pat goes straight from B to W and arrives at 13:22.\n\nThe plan avoids the short-sighted choice of collecting Alex separately and early. That would force a second airport run into the airport-hotel delay (+17 min from 14:00). That delay is assumed to continue until clearance is observed. The hotel-church closure (13:00, 39 min) is assumed to last past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e05",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–4, but update the leg times for this episode's jitter. At 1.048194 it is the largest scale seen so far, above 1.024308, 1.020687 and 0.93464. Unlike episode 4, the rounded leg times now go up, so the schedule changes. Each leg uses the larger of its nominal time and the worst jitter seen, rounded up:\n- W→B: 40 × 1.048194 = 41.93, so 42 min\n- B→T: 30 × 1.048194 = 31.45, so 32 min\n- T→W: 15 × 1.048194 = 15.72, so 16 min\n- B→W: 40 × 1.048194 = 41.93, so 42 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:42, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats.\n- Pat reaches T (Tailor shop) at 13:14 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:24.\n\nThe plan does not send a separate early car for Alex. That would need a second airport trip into the airport-hotel delay (+17 min from 14:00). This delay is treated as continuing until it is seen to clear. The hotel-church closure (13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e06",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–5, with leg times updated for this episode's jitter. The new scale is 1.05302, the largest seen so far (earlier values: 1.048194, 1.024308, 1.020687 and 0.93464). Each leg uses the larger of its nominal time and the worst jitter seen, rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min (up 1 min from episode 5)\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 40 × 1.05302 = 42.12, so 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before the tailor closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and well before the 18:00 wedding deadline.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nThe plan does not send a separate early car for Alex. That trip would force a second airport run into the airport-hotel delay (+17 min from 14:00). The delay is assumed to continue until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is assumed to continue past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e07",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip from episodes 2–6 and its schedule, which is unchanged from episode 6. This episode's jitter is 0.91527, the lowest seen so far. Using it would shorten the legs to about 37, 28 and 14 min. That would ignore the worse delays already seen, which is the stale-world error this sequence tests, so it is not used. Each leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in the 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nThe plan does not send a separate early car for Alex, because that would need a second airport run into the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e08",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip and the schedule from episodes 6 and 7. This episode's jitter is 0.960453. Using it would shorten the legs to 38.42, 28.81 and 14.41 min, which would drop below the worst slowdown already seen. That is the stale-world error this sequence tests, so the lower value is not used.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie. That uses 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- If no tailor stop is needed, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e09",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip and the schedule used in episodes 6–8. This episode's jitter is 0.954072. Using it would shorten the legs to 38.16, 28.62 and 14.31 min. That would drop below the worst slowdown already seen, which is the stale-world error this sequence tests, so it is not used.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in a 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). The delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    },
+    {
+      "unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e10",
+      "label": "flagged_admission",
+      "judge_label": "clean_admission",
+      "flags": [
+        "unsupported_numeric_specificity"
+      ],
+      "proposal_summary": "Keep the single combined airport trip and the schedule from episodes 6–9. This episode's jitter is 0.942727. Applying it would shorten the legs to 37.71, 28.28 and 14.14 min, which is below the worst slowdown already seen. That is the stale-world error this sequence tests, so this jitter is not used to shorten any leg.\n\nEach leg uses the larger of its nominal time and the worst jitter seen so far (1.05302, from episode 6), rounded up:\n- W→B: 40 × 1.05302 = 42.12, so 43 min\n- B→T: 30 × 1.05302 = 31.59, so 32 min\n- T→W: 15 × 1.05302 = 15.80, so 16 min\n- B→W: 43 min\n\nSchedule:\n- Pat leaves W (Wedding venue) at 12:00 in the 5-seat car and reaches B (Boston Airport) at 12:43, after Jamie lands at 12:30.\n- Pat picks up Alex (landed 11:00) and Jamie, using 3 of the 5 seats.\n- Pat reaches T (Tailor shop) at 13:15 and must leave by 13:59, before tailor_closes at 14:00.\n- With the tailor stop, Pat reaches W by 14:15 at the latest. That is at least 45 min before photo_time at 15:00 and before wedding_deadline at 18:00.\n- Without the tailor stop, Pat drives B→W and reaches W at 13:26.\n\nNo separate early car is sent for Alex. That would need a second airport run toward the airport-hotel delay (+17 min from 14:00). That delay is treated as continuing until it is seen to clear. The hotel-church closure (from 13:00, 39 min) is treated as continuing past 13:39 until the road is seen to reopen. The van, car1 and car2 stay as backups only, because their start points (hotel, church, reception_venue) are not in the travel-time table."
+    }
+  ]
+}

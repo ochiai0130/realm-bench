@@ -1,0 +1,283 @@
+{
+  "schema": "realm_tier6_claude_subscription_handoff_bundle_v0",
+  "admission_source": "realm_substitute_admission_v0",
+  "billing_path": "claude_cli_subscription_oauth",
+  "family": "ride_or_routing_disruption",
+  "sequence_id": "T6-c574beceb46d",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "cases": [
+    {
+      "case_id": "8a080b40-e56f-50ec-98dc-5f8a2ce1d52f",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e01",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "judge_ungrounded_specifics"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair. 4 of the 7 requests can be assigned: v001 takes p001 and p005 together (university to suburb), v002 takes p003, and v003 takes p007. The other 3 can't be served as the data stands. p002's deadline is shorter than every route from airport to park. p004 can only meet its deadline on the 43-unit direct route, and no vehicle has enough fuel for that trip. p006 has a reversed time window (start after end). p003's time window is also reversed, so its assignment holds only if the window is confirmed. The plan avoids the mall-university construction leg. It also takes p004's direct route out of the plan, because that route ends in the downtown accident zone during p004's pickup window. All the original data and disruption records stay unchanged and are logged as the reason for this repair."
+      }
+    },
+    {
+      "case_id": "de8eb2a1-4f55-57ef-9999-d87326c16389",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e02",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held with logged reasons.\n- **v001** takes p001 and p005 together from university to suburb. The trip is 10 units, leaving 44 of its 54 fuel.\n- **v002** takes p003 on park, then mall, then suburb. That is 14 + 36 = 50 units, within both its 57 fuel and the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1].\n- **v003** takes p007 on downtown, then park, then mall. That is 18 + 14 = 32 units, within its 50 fuel. The 14-unit passenger leg is within the 21 deadline.\n\nHeld requests:\n- **p002:** the shortest route from airport to park is 32 units (through mall), which is over its 25 deadline.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The total fuel needed is 69 for v001 (which has 54), 75 for v002 (57) and 86 for v003 (50).\n- **p006:** its time window is reversed: [14.75, 14.27]. v003 could reach it on a 50-unit route through park and mall, but that uses all of v003's fuel and conflicts with p007.\n\nThe plan avoids the mall-university construction edge. All original records and disruptions are kept unchanged as the evidence for this repair."
+      }
+    },
+    {
+      "case_id": "df94b673-b75b-58ed-aa64-37e181d73e93",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e03",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The figures match the episode-2 plan, which passed review cleanly; every figure was re-checked against this instance.\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units, which leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1].\n- **v003** (at downtown, 50 fuel) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld requests:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall and 57 through suburb.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of its fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+      }
+    },
+    {
+      "case_id": "81ff0491-4e82-5469-82aa-78014aea4fc2",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e04",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The plan matches episodes 2 and 3, which both passed review cleanly, and I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units, which leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall, 55 through park and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of its fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+      }
+    },
+    {
+      "case_id": "c011b897-7702-59af-bc8b-b21dcc4d3e48",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e05",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. The plan is the same as episodes 2–4, which passed review cleanly, and every figure was re-checked against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within the 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within the 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the direct 43-unit route meets its 46 deadline. The other routes are 54 through mall, 55 through park and 63 through suburb. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes are recorded in a separate change list."
+      }
+    },
+    {
+      "case_id": "63a8dff9-499a-5434-b5c7-5cbb3165b263",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e06",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. It is the same plan that passed review cleanly in episodes 2–5. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+      }
+    },
+    {
+      "case_id": "2ed345f0-5846-5086-9935-f5898bd08501",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e07",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data matches the earlier episodes, so the plan is the same one that passed review cleanly in episodes 2–6. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative because p003's time window is reversed: [10.75, 10.1]. The park accident (starts at 10, lasts 72) may also overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. The total fuel needed is more than any vehicle has: 69 for v001 (has 54), 75 for v002 (has 57) and 86 for v003 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+      }
+    },
+    {
+      "case_id": "a7fc29f1-352c-5b3f-a3ac-abb592ad369c",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e08",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data is the same as in earlier episodes, so the plan matches the one that passed review cleanly in episodes 2–7. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons: p003's time window is reversed ([10.75, 10.1]), and the park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university. Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50). The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and disruption records are kept unchanged as the evidence for this repair. Changes go to a separate change list."
+      }
+    },
+    {
+      "case_id": "2655d6e6-e22f-5371-9847-90a91aab8416",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e09",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair. 4 of the 7 requests are assigned and 3 are held, each with a logged reason. This instance's data matches episodes 2–8, so the plan is the one that passed review cleanly there. I re-checked every figure against this instance.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons:\n  - p003's time window is reversed: [10.75, 10.1].\n  - The park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university.\n  - Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50).\n  - The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and the three disruption records are kept unchanged as the evidence for this repair. Changes go only to a separate change list that points back to those records."
+      }
+    },
+    {
+      "case_id": "db898a4e-fb07-5df9-a1d4-91ee671a1d22",
+      "collection_unit": "ride_or_routing_disruption:T6-c574beceb46d:E7:claude:e10",
+      "family": "ride_or_routing_disruption",
+      "sequence_id": "T6-c574beceb46d",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "clean_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [],
+        "unsupported_specificity_count": 0,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_proposal",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a partial repair: 4 of the 7 requests are assigned, and the other 3 are held with a logged reason for each. This instance's data is the same as in episodes 2–9, and I re-checked every figure against it.\n\nAssigned:\n- **v001** (at university, 54 fuel, capacity 4) takes p001 and p005 together from university to suburb. The trip is 10 units and leaves 44 fuel. Both deadlines (50 and 52) are met.\n- **v002** (at park, 57 fuel, capacity 3) takes p003 on park, then mall, then suburb: 14 + 36 = 50 units. That is within its 57 fuel, and the 36-unit passenger leg is within the 57 deadline. This assignment is tentative for two reasons:\n  - p003's time window is reversed: [10.75, 10.1].\n  - The park accident (starts at 10, lasts 72) may overlap the park-to-mall leg.\n- **v003** (at downtown, 50 fuel, capacity 6) takes p007 on downtown, then park, then mall: 18 + 14 = 32 units. That is within its 50 fuel, and the 14-unit passenger leg is within the 21 deadline.\n\nHeld:\n- **p002:** every route from airport to park is over its 25 deadline. The routes are 37 direct, 32 through mall, 57 through suburb, 61 through downtown and 69 through university.\n- **p004:** only the 43-unit direct route meets its 46 deadline. The other routes are 54 through mall, 55 through park, 63 through suburb and 68 through university.\n  - Every vehicle has less fuel than the trip needs: v001 needs 69 (has 54), v002 needs 75 (has 57) and v003 needs 86 (has 50).\n  - The direct route also ends in the downtown accident zone during p004's pickup window.\n- **p006:** its time window is reversed: [14.75, 14.266666666666667]. v003 could reach it on a 50-unit route (18 + 14 + 18), but that uses all of v003's fuel and conflicts with p007.\n\nNo route uses the mall-university construction edge. All original records and the three disruption records are kept unchanged as the evidence for this repair. Changes go only to a separate change list that points back to those records."
+      }
+    }
+  ]
+}

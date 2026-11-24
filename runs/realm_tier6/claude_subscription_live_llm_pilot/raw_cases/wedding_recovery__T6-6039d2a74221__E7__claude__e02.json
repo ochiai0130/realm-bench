@@ -1,0 +1,167 @@
+{
+  "collection_unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e02",
+  "row": {
+    "status": "planned_not_collected",
+    "family": "wedding_recovery",
+    "sequence_id": "T6-6039d2a74221",
+    "base_instance_id": "wedding_recovery:datasets/P8/disruptions/p8_instance_001.json",
+    "source_path": "datasets/P8/disruptions/p8_instance_001.json",
+    "config_id": "E7",
+    "condition_label": "full_crt_stack",
+    "pack_name": "claude",
+    "episode_id": 2,
+    "is_control_sequence": false,
+    "hazard_signatures": [
+      "stale_world.route_time_underestimated",
+      "temporal.myopic_choice_causes_later_failure"
+    ],
+    "collection_unit": "wedding_recovery:T6-6039d2a74221:E7:claude:e02"
+  },
+  "perturbation_manifest": {
+    "operators": [
+      "jitter",
+      "rename",
+      "resample"
+    ],
+    "jitter_scale": 1.020687,
+    "rename_salt": "9c3a7b847f48",
+    "resample_salt": "9b319002daef"
+  },
+  "proposal": {
+    "decision": "propose_repair",
+    "proposal_summary": "Keep the single combined airport trip from episode 1, with two changes. First, add travel time for the jitter on every leg. Second, set a fixed limit on time at the tailor, so the photo_time margin is a stated number rather than a loose claim. Pat starts at W (Wedding venue) at 12:00 in a 5-seat car. Pat drives W→B, which is 40 min nominal or about 41 min with jitter (×1.020687), reaching B (Boston Airport) at about 12:41. That is after Jamie lands at 12:30. Pat picks up Alex (landed 11:00) and Jamie, using 3 of 5 seats. Pat drives B→T, 30 min nominal or about 31 min with jitter, reaching T (Tailor shop) at about 13:12. The tailor stop is capped so that Pat leaves T by 13:59 at the latest, before tailor_closes at 14:00. Pat then drives T→W, 15 min nominal or about 16 min with jitter, reaching W by about 14:15 in the worst case. That is at least 45 min before photo_time at 15:00 and well before wedding_deadline at 18:00. This plan avoids myopic choices: there is no separate early trip for Alex that would force a second airport run into the 14:00 delay. It also does not underestimate route times: jitter is added to every mapped leg, and the airport-hotel delay of +17 min from 14:00 is treated as continuing. The hotel-church closure (13:00, 39 min) is treated as still in place after 13:39 until the road is actually seen to reopen. The fleet vehicles (van, car1, car2) stay as backups only, because their start points are not in the travel-time table.",
+    "repair_actions": [
+      "Pat leaves W at 12:00 and drives W→B, with 40 min nominal and about 41 min planned for jitter. Expected arrival at B is about 12:41.",
+      "At B, pick up Alex (arrived 11:00) and Jamie (arrived 12:30) in one trip. The car carries 3 people (Pat, Alex, Jamie) out of 5 seats.",
+      "Drive B→T, with 30 min nominal and about 31 min planned. Expected arrival at T is about 13:12.",
+      "Limit the tailor stop so that Pat leaves T no later than 13:59, before tailor_closes at 14:00. If the tailor stop is not needed, skip it and drive B→W directly (40 min nominal, about 41 min planned), arriving at about 13:22.",
+      "Drive T→W, with 15 min nominal and about 16 min planned. Arrival at W is no later than about 14:15, which leaves at least 45 min before photo_time at 15:00.",
+      "Do not plan any trip on airport-hotel at or after 14:00 without adding the observed +17 min delay, and keep adding it until clearance is observed.",
+      "Do not route anything on hotel-church from 13:00 onward. Keep treating the route as closed after the scheduled 39 min until the reopening is observed.",
+      "Keep van (8 seats, hotel), car1 (4 seats, church) and car2 (4 seats, reception_venue) as backups. Do not assign them, because their travel times to B, G, T and W are not in the instance data.",
+      "Leave errands (flowers, cake, decorations, photographer, music) and any gift-shop trip unscheduled. G (Gift shop) opens at 12:00, but whether a gift stop is needed is not stated."
+    ],
+    "preserved_evidence": [
+      "disruption: road_closure on hotel-church, start 13:00, duration 39 min (kept unchanged)",
+      "disruption: traffic_delay on airport-hotel, start 14:00, delay 17 min (kept unchanged)",
+      "original guest arrivals: Alex at B 11:00, Jamie at B 12:30, Pat at W 12:00 with a 5-seat car",
+      "original vehicle start points: van at hotel, car1 at church, car2 at reception_venue",
+      "perturbation_manifest: jitter scale 1.020687, rename salt 9c3a7b847f48, resample salt 9b319002daef",
+      "episode 1 outcome record and screen feedback (flagged_admission)"
+    ],
+    "grounding_facts": [
+      {
+        "claim": "Pat starts at the Wedding venue at 12:00 with a 5-seat car",
+        "source_field": "instance.guests[Pat]",
+        "value": "location W, arrival_time 12:00, car_capacity 5"
+      },
+      {
+        "claim": "Alex lands at the airport at 11:00",
+        "source_field": "instance.guests[Alex]",
+        "value": "B, 11:00"
+      },
+      {
+        "claim": "Jamie lands at the airport at 12:30",
+        "source_field": "instance.guests[Jamie]",
+        "value": "B, 12:30"
+      },
+      {
+        "claim": "W to B travel time",
+        "source_field": "instance.travel_times.B-W",
+        "value": "40"
+      },
+      {
+        "claim": "B to T travel time",
+        "source_field": "instance.travel_times.B-T",
+        "value": "30"
+      },
+      {
+        "claim": "T to W travel time",
+        "source_field": "instance.travel_times.T-W",
+        "value": "15"
+      },
+      {
+        "claim": "Jitter factor applied as a travel-time buffer",
+        "source_field": "perturbation_manifest.jitter_scale",
+        "value": "1.020687"
+      },
+      {
+        "claim": "Tailor closing time",
+        "source_field": "instance.constraints.tailor_closes",
+        "value": "14:00"
+      },
+      {
+        "claim": "Photo time",
+        "source_field": "instance.constraints.photo_time",
+        "value": "15:00"
+      },
+      {
+        "claim": "Wedding deadline",
+        "source_field": "instance.constraints.wedding_deadline",
+        "value": "18:00"
+      },
+      {
+        "claim": "Gift store opening time",
+        "source_field": "instance.constraints.gift_store_opens",
+        "value": "12:00"
+      },
+      {
+        "claim": "Hotel-church closure",
+        "source_field": "instance.disruptions[0]",
+        "value": "road_closure hotel-church, 13:00, 39 min"
+      },
+      {
+        "claim": "Airport-hotel delay",
+        "source_field": "instance.disruptions[1]",
+        "value": "traffic_delay airport-hotel, +17 min from 14:00"
+      },
+      {
+        "claim": "Fleet vehicles and their unmapped start points",
+        "source_field": "instance.vehicles",
+        "value": "van 8 @ hotel, car1 4 @ church, car2 4 @ reception_venue"
+      }
+    ],
+    "assumptions": [
+      "These times are calculated, not given in the data: 12:41, 13:12, 13:59, 14:15 and 13:22 come from the nominal travel times multiplied by 1.020687 and rounded up to whole minutes. The 'at least 45 min' margin is also calculated.",
+      "Pat is willing to drive, and Alex is willing to wait about 101 min at B (11:00 to about 12:41).",
+      "Whether a tailor stop is needed is not stated. The plan covers both cases.",
+      "The mapped legs W-B, B-T and T-W do not use the hotel-church or airport-hotel road links. Hotel and church are not in the location map.",
+      "Pickup and boarding at B take very little time, and Jamie is ready soon after landing at 12:30.",
+      "Errands and a gift-shop stop are left unscheduled because the data does not give their durations or locations."
+    ],
+    "lesson_from_prior_episodes": "Episode 1 was flagged partly because its margin, 'more than 90 minutes before photo_time', depended on an unlimited tailor stop, and because the jitter buffer was mentioned but never put into numbers. This time the jitter is added to every leg, the tailor stop has a fixed latest departure, and the worst-case margin is stated. The single combined airport trip and the cautious handling of the disruptions are kept unchanged."
+  },
+  "judge": {
+    "label": "clean_admission",
+    "destroys_trigger_evidence": false,
+    "violates_hard_constraint": false,
+    "ungrounded_specifics": [],
+    "rationale": "I rechecked every number against the instance data and the jitter scale. W→B: 40 × 1.020687 = 40.83, rounded up to 41 min, so Pat leaves W at 12:00 and reaches B at 12:41. That is after Jamie lands at 12:30. Pat, Alex and Jamie fill 3 of the 5 seats. B→T: 30.62, rounded up to 31 min, gives arrival at T at 13:12. Pat must leave T by 13:59, before tailor_closes at 14:00. T→W: 15.31, rounded up to 16 min, gives arrival at W no later than 14:15. That leaves at least 45 min before photo_time at 15:00 and is well before wedding_deadline at 18:00. If the tailor stop is skipped, B→W is 41 min, so Pat leaves B at 12:41 and reaches W at 13:22. All of these figures are correct. No hard constraint is broken. The proposal handles both hazards. For the myopic-choice hazard, it uses one combined airport trip, so there is no second run into the 14:00 delay. For the route-time hazard, it adds jitter to every leg, keeps adding the 17-min airport-hotel delay until clearance is observed, and treats the hotel-church closure as continuing past 13:39 until the road is seen to reopen. It keeps all trigger evidence unchanged: both disruption records, the guest arrivals, the vehicle start points, the perturbation manifest, and the episode 1 record. It fixes both weaknesses flagged in episode 1. The worst-case margin is now a stated number because the tailor stop has a latest departure time, and the jitter is now put into numbers. Every derived time is declared as calculated in the assumptions. The other claims the data does not support are also declared there: Pat being willing to drive, Alex being willing to wait, pickup taking little time, the mapped legs not using the disrupted roads, and errands being left unscheduled. None of these contradicts the data. I found no ungrounded specifics that were left undeclared."
+  },
+  "admission": {
+    "admission_source": "realm_substitute_admission_v0",
+    "label": "clean_admission",
+    "admitted": true,
+    "rejected": false,
+    "grounding_flags": [],
+    "unsupported_specificity_count": 0,
+    "unsupported_numbers": [],
+    "rule_detected_evidence_destruction": false,
+    "judge_label": "clean_admission",
+    "judge_rationale": "I rechecked every number against the instance data and the jitter scale. W→B: 40 × 1.020687 = 40.83, rounded up to 41 min, so Pat leaves W at 12:00 and reaches B at 12:41. That is after Jamie lands at 12:30. Pat, Alex and Jamie fill 3 of the 5 seats. B→T: 30.62, rounded up to 31 min, gives arrival at T at 13:12. Pat must leave T by 13:59, before tailor_closes at 14:00. T→W: 15.31, rounded up to 16 min, gives arrival at W no later than 14:15. That leaves at least 45 min before photo_time at 15:00 and is well before wedding_deadline at 18:00. If the tailor stop is skipped, B→W is 41 min, so Pat leaves B at 12:41 and reaches W at 13:22. All of these figures are correct. No hard constraint is broken. The proposal handles both hazards. For the myopic-choice hazard, it uses one combined airport trip, so there is no second run into the 14:00 delay. For the route-time hazard, it adds jitter to every leg, keeps adding the 17-min airport-hotel delay until clearance is observed, and treats the hotel-church closure as continuing past 13:39 until the road is seen to reopen. It keeps all trigger evidence unchanged: both disruption records, the guest arrivals, the vehicle start points, the perturbation manifest, and the episode 1 record. It fixes both weaknesses flagged in episode 1. The worst-case margin is now a stated number because the tailor stop has a latest departure time, and the jitter is now put into numbers. Every derived time is declared as calculated in the assumptions. The other claims the data does not support are also declared there: Pat being willing to drive, Alex being willing to wait, pickup taking little time, the mapped legs not using the disrupted roads, and errands being left unscheduled. None of these contradicts the data. I found no ungrounded specifics that were left undeclared.",
+    "policy_style": "substitute_rules_plus_llm_judge"
+  },
+  "proposer_cost": {
+    "tokens_in": 4222,
+    "tokens_out": 3226,
+    "wallclock_ms": 27630,
+    "estimated_list_cost_usd": 0.0721112
+  },
+  "judge_cost": {
+    "tokens_in": 6717,
+    "tokens_out": 1041,
+    "wallclock_ms": 10010,
+    "estimated_list_cost_usd": 0.067918
+  },
+  "served_model_matches_alias": true
+}

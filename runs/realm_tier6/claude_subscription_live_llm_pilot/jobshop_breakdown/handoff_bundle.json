@@ -1,0 +1,301 @@
+{
+  "schema": "realm_tier6_claude_subscription_handoff_bundle_v0",
+  "admission_source": "realm_substitute_admission_v0",
+  "billing_path": "claude_cli_subscription_oauth",
+  "family": "jobshop_breakdown",
+  "sequence_id": "T6-76095aec5ba1",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "cases": [
+    {
+      "case_id": "8e6d043d-78f5-5536-bf8d-73835f1e86fa",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e01",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 1,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 1,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "Limited, additive repair. Add machine 24's outage (t=196 to 222) as a hard blocked window in the schedule, and keep the original disruption record unchanged. The data shows the outage cannot reach any listed job. Only jobs 71 and 169 have operations on machine 24, and each of those operations can start no earlier than the sum of the processing times before it: t=564 for job 71 op10, t=727 for job 169 op13, and t=1081 for job 169 op19. All of these are after t=222, so no operation needs to move. The other 15 jobs in affected_jobs have no machine-24 operation in the given data. I am recording that as a data discrepancy, not repairing it. I am not rescheduling for the two severe weather windows (t=519–681 and t=534–705). The instance gives no delay amount, and it is unclear whether affected_operations means job IDs or operation IDs. No baseline schedule was provided either, so any weather shift would be made up. Instead, those operations are flagged for re-check when the data is available."
+      }
+    },
+    {
+      "case_id": "d66da172-4290-5eba-8ad7-3cb06a2f937a",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e02",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 2,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a small repair that only adds to the plan; nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26, so blocked from t=196 to t=222) goes into the schedule as a hard blocked window, and the original disruption record stays unchanged. Using this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 operation 10 cannot start before t=564. Job 169 operation 13 cannot start before t=727, and operation 19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. I record this as a data discrepancy but do not change it. I do not reschedule anything for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether affected_operations means job IDs or operation IDs, and there is no baseline schedule. Instead, the operations listed in those windows are marked at-risk for re-checking. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+      }
+    },
+    {
+      "case_id": "3ed5f61d-7904-5c90-a814-637bb876d22e",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e03",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 3,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This is a small repair that only adds to the plan. Nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222 in a new plan version. The original disruption record stays unchanged and linked. The processing-time data shows that only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. I record this as a data discrepancy but do not change it. I do not reschedule anything for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+      }
+    },
+    {
+      "case_id": "8ee21bc6-099c-5880-961f-849357277ca8",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e04",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 4,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 1,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. Machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222 in a new plan version. The original disruption record stays unchanged and linked to it. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. This is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it is unclear whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan are kept unchanged."
+      }
+    },
+    {
+      "case_id": "2e5323d7-3d1d-5404-a34f-4a39333b2418",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e05",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 5,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. That window links back to the original disruption record, which stays as it is. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, it does not say whether the listed IDs are job IDs or operation IDs, and there is no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the pre-repair plan stay unchanged and remain linked, so the trigger evidence can still be audited."
+      }
+    },
+    {
+      "case_id": "abc30dea-7faf-5473-879c-fae2de57ac5d",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e06",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 6,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan; nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222, linked to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation needs to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+      }
+    },
+    {
+      "case_id": "8a27b77e-dd38-5264-a409-7437e9c8fb3c",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e07",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 7,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three start after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+      }
+    },
+    {
+      "case_id": "313134ca-6d87-5970-bcea-e0fdcd705090",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e08",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 8,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan; nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+      }
+    },
+    {
+      "case_id": "c60dd58a-e25a-53dd-b91b-61d33a8e7e7c",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e09",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 9,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+      }
+    },
+    {
+      "case_id": "b2da54aa-a1d7-55cf-a4b1-d19b4abd8fc8",
+      "collection_unit": "jobshop_breakdown:T6-76095aec5ba1:E7:claude:e10",
+      "family": "jobshop_breakdown",
+      "sequence_id": "T6-76095aec5ba1",
+      "config_id": "E7",
+      "condition_label": "full_crt_stack",
+      "pack_name": "claude",
+      "episode_id": 10,
+      "mnemosyne_admission": {
+        "admission_source": "realm_substitute_admission_v0",
+        "label": "flagged_admission",
+        "admitted": true,
+        "rejected": false,
+        "grounding_flags": [
+          "unsupported_numeric_specificity"
+        ],
+        "unsupported_specificity_count": 2,
+        "policy_style": "substitute_rules_plus_llm_judge"
+      },
+      "realm_scorer_handoff": {
+        "scorer_action": "score_admitted_with_grounding_flags",
+        "official_realm_score": false,
+        "requires_official_realm_scorer": true,
+        "safety_passed_before_official_scoring": true,
+        "screened_before_commit": false,
+        "proposal_summary": "This repair only adds to the plan. Nothing is deleted or overwritten. In a new child plan version, machine 24's breakdown (start_time 196, duration 26) becomes a hard blocked window from t=196 to t=222. The window links to disruption record #1, which stays unchanged. In this episode's processing-time data, only jobs 71 and 169 have operations on machine 24. Job 71 op10 cannot start before t=564. Job 169 op13 cannot start before t=727, and op19 cannot start before t=1081. All three are after t=222, so no operation has to move. The other 15 jobs in affected_jobs have no operation on machine 24. That mismatch is recorded as a data discrepancy and left uncorrected. Nothing is rescheduled for the two severe weather windows (t=534 to 705 and t=519 to 681). The instance gives no delay amount, does not say whether the listed IDs are job IDs or operation IDs, and has no baseline schedule. The listed items are marked at-risk for re-checking instead. All three disruption records, the processing-time data and the parent plan stay unchanged and linked, so the trigger evidence can still be audited."
+      }
+    }
+  ]
+}

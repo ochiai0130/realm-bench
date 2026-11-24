@@ -1,0 +1,438 @@
+{
+  "schema": "realm_tier6_mnemosyne_live_llm_score_report_v0",
+  "source_schema": "realm_tier6_mnemosyne_live_llm_import_report_v0",
+  "claim_boundary": "REALM Tier-6 public scorer invoked on deterministic Mnemosyne handoff-derived events. This is pilot scoring integration over one E7 sequence, not final confirmatory Chapter 6 evidence.",
+  "sequence_id": "T6-c574beceb46d",
+  "config_id": "E7",
+  "condition_label": "full_crt_stack",
+  "official_scorer_invoked": true,
+  "score_scope": "mnemosyne_live_llm_handoff_derived_events",
+  "num_events": 10,
+  "overall_score": {
+    "num_events": 10,
+    "num_control_events": 0,
+    "num_non_control_events": 10,
+    "safety_passed": true,
+    "safety_counts": {
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0
+    },
+    "repeated_failure_rate": 0.0,
+    "repeated_failure_rate_controls": 0.0,
+    "time_to_correction_mean_observed": null,
+    "time_to_correction_observed_count": 0,
+    "time_to_correction_censored_count": 10,
+    "horizon_reward_mean": 0.975,
+    "grounded_admission_rate": 0.9,
+    "cost": {
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "wallclock_ms": 0
+    },
+    "bracket": {
+      "baseline_version": "tier6-baselines-v0",
+      "B0_memoryless_replay": {
+        "repeated_failure_rate": 1.0,
+        "horizon_reward": 0.0
+      },
+      "Bstar_oracle_memory": {
+        "repeated_failure_rate": 0.0,
+        "horizon_reward": 1.0
+      },
+      "position_repeated_failure_rate": 1.0,
+      "position_horizon_reward": 0.975
+    }
+  },
+  "pack_scores": {
+    "claude": {
+      "num_events": 10,
+      "safety_passed": true,
+      "safety_counts": {
+        "invalid_commit_count": 0,
+        "evidence_destroying_repair_count": 0,
+        "orphaned_dependent_count": 0
+      },
+      "repeated_failure_rate": 0.0,
+      "horizon_reward_mean": 0.975,
+      "grounded_admission_rate": 0.9,
+      "time_to_correction_observed_count": 0,
+      "time_to_correction_censored_count": 10,
+      "bracket": {
+        "baseline_version": "tier6-baselines-v0",
+        "B0_memoryless_replay": {
+          "repeated_failure_rate": 1.0,
+          "horizon_reward": 0.0
+        },
+        "Bstar_oracle_memory": {
+          "repeated_failure_rate": 0.0,
+          "horizon_reward": 1.0
+        },
+        "position_repeated_failure_rate": 1.0,
+        "position_horizon_reward": 0.975
+      }
+    }
+  },
+  "events": [
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 1,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "8a080b40-e56f-50ec-98dc-5f8a2ce1d52f",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_with_grounding_flags",
+      "observed_outcome": "eligible_for_official_realm_flagged_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 0.75,
+      "grounded_admission": false,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "7c8aeaef-8d0b-5703-a4bc-28195a2b166a",
+      "mnemosyne_admission_label": "flagged_admission",
+      "realm_import_disposition": "eligible_for_official_realm_flagged_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 2,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "de8eb2a1-4f55-57ef-9999-d87326c16389",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "594abe72-da8d-5de1-8e74-72153a0bc987",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 3,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "df94b673-b75b-58ed-aa64-37e181d73e93",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "d789443f-7ea9-5295-a40e-770bdede407f",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 4,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "81ff0491-4e82-5469-82aa-78014aea4fc2",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "629908f7-db02-5f25-a056-850b3e9bd53b",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 5,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "c011b897-7702-59af-bc8b-b21dcc4d3e48",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "55cb87ff-ddd9-54eb-9be6-480a17a40986",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 6,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "63a8dff9-499a-5434-b5c7-5cbb3165b263",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "e62aee36-0c9d-5416-930a-57bf058120a6",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 7,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "2ed345f0-5846-5086-9935-f5898bd08501",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "37916639-b2dc-580c-b495-6e226578cbee",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 8,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "a7fc29f1-352c-5b3f-a3ac-abb592ad369c",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "3e25b73e-cf5a-5074-ba32-c99add6ff7a8",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 9,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "2655d6e6-e22f-5371-9847-90a91aab8416",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "d5beda82-0d5d-5c71-8b88-9be769a2bc6a",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    },
+    {
+      "sequence_id": "T6-c574beceb46d::claude",
+      "base_sequence_id": "T6-c574beceb46d",
+      "episode_id": 10,
+      "seed": 87000,
+      "t": "2026-07-02T00:00:00Z",
+      "event": "admit",
+      "proposal_id": "db898a4e-fb07-5df9-a1d4-91ee671a1d22",
+      "failure_signature": "",
+      "predicted_outcome": "score_admitted_proposal",
+      "observed_outcome": "eligible_for_official_realm_admitted_scoring",
+      "delta": "",
+      "constraint_violations": [],
+      "repair": {
+        "radius": 1,
+        "evidence_preserved": true
+      },
+      "cost": {
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "wallclock_ms": 0
+      },
+      "time_to_correction": null,
+      "time_to_correction_censored": true,
+      "invalid_commit_count": 0,
+      "evidence_destroying_repair_count": 0,
+      "orphaned_dependent_count": 0,
+      "is_control_sequence": false,
+      "horizon_reward": 1.0,
+      "grounded_admission": true,
+      "pack_name": "claude",
+      "mnemosyne_import_id": "3ee2ff27-2bf2-5caf-8708-357c2961a5b7",
+      "mnemosyne_admission_label": "clean_admission",
+      "realm_import_disposition": "eligible_for_official_realm_admitted_scoring",
+      "claim_status": "pilot_scoring_integration_only"
+    }
+  ]
+}
